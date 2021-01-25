@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # All the urls needed for login, password reset, logout, etc
     path('accounts/', include('allauth.urls')),
+    # The home URL
+    path('', include('home.urls')),
 ]
