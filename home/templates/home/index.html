@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="bg-success">
+    <div class="bg-success" id="particles-js">
         <div class="container h-100">
             <!-- Banner section in landing page -->
             <div class="row h-100  pt-3  pb-5" id="banner">
@@ -18,11 +18,11 @@
                 <!-- CTA Contact Form  -->
                 <div class="col-sm-12 col-md-6 d-flex my-auto">
                     <div class="row bg-info mx-auto">
-                        <div class="">
+                        <div class="d-flex">
 
                             <!-- Banner Form in Landing Page -->
                             <form action="" method="POST" id="banner-form" class="px-2 py-auto my-2 rounded">
-                                <div class="d-block form-group">
+                                <div class="d-block form-group mt-3">
                                     {% csrf_token %}  <!-- This validate that the information is coming from this form -->
                                     <h5 class="text-center text-black">Request Information</h5>
                                     <p class="text-center">It will be a pleasure working together</p>
