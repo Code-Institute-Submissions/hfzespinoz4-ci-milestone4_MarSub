@@ -84,6 +84,16 @@ AUTENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Paremaeters for registration, account verification and login
+ACCOUNT_AUTHENTICATIO_METHOD = 'user_email',
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGHT = 4
+LOGIN_URL = 'accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'hzuniga.wsgi.application'
 
