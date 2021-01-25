@@ -2,5 +2,59 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="display-4 success"> It works!</h1>
+    <div class="bg-success">
+        <div class="container h-100">
+            <!-- Banner section in landing page -->
+            <div class="row h-100  pt-3  pb-5" id="banner">
+
+                <!-- Services CTA Title and Brief Description -->
+                <div class="col-sm-12 col-md-6 d-flex my-auto">
+                    <div class="d-bl">
+                        <h1 class="display-4 text-black">Tomorrows start here!</h1>
+                        <h4>brief comment about this title</h4>
+                    </div>
+                </div>
+
+                <!-- CTA Contact Form  -->
+                <div class="col-sm-12 col-md-6 d-flex my-auto">
+                    <div class="row bg-info mx-auto">
+                        <div class="">
+
+                            <!-- Banner Form in Landing Page -->
+                            <form action="" method="POST" id="banner-form" class="px-2 py-auto my-2 rounded">
+                                <div class="d-block form-group">
+                                    {% csrf_token %}  <!-- This validate that the information is coming from this form -->
+                                    <h5 class="text-center text-black">Request Information</h5>
+                                    <p class="text-center">It will be a pleasure working together</p>
+                                    <input type="text" placeholder="Your Name" class="mb-2 form-control text-center">
+                                    <input type="email" placeholder="Your Email" class="mt-1 mb-2 form-control text-center">
+                                    <select name="cta-select" id="cta-select" class="form-control">
+                                        <option value="">I would like to know about..</option>
+                                        <option value="it-services">IT Services</option>
+                                        <option value="cloud-services">Cloud Services</option>
+                                        <option value="marketing-services">Marketing Services</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-danger my-2 mx-auto">Submit!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-5">
+        <div class="col-12 justify-content-center">
+            <h4 class="text-center mx-auto" id="about-title">About Us</h4>
+            <h2 class="text-center">We Provide you with the best IT, Cloud and Marketing Solutions</h2>
+            <p class="text-center" id="about-description">
+                We provide services and technological tools that optimize processes in companies. 
+                We provide not only solutions on a day-to-day basis, but we also advise on developments in any 
+                technological field so that you can make the best decisions. 
+            </p>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
 {% endblock %}
