@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import services, Category
+from .models import Services, Category
 
 
 # Customizing Services module in Admin Panel
@@ -28,5 +28,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 # Registering Category and Service Modules in Admin panel"
 
-admin.site.register(services, ServicesAdmin)
+admin.site.register(Services, ServicesAdmin)
 admin.site.register(Category, CategoryAdmin)

@@ -18,7 +18,7 @@ class Category(models.Model):
 
 
 # Creating the services Model
-class services(models.Model):
+class Services(models.Model):
 
     class Meta:
         verbose_name_plural = 'Services'

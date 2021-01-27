@@ -25,4 +25,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     # The home URL
     path('', include('home.urls')),
+    # The Service URL
+    path('services/', include('services.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
