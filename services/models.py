@@ -10,8 +10,7 @@ class Category(models.Model):
 
     category = models.CharField(max_length=254)
     description = models.TextField()
-    image_url = models.URLField(max_length=1024)
-    image = models.ImageField()
+    image_url = models.CharField(max_length=1024)
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -21,13 +20,19 @@ class Category(models.Model):
 # Creating the services Model
 class services(models.Model):
 
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    class Meta:
+        verbose_name_plural = 'Services'
+
+    category = models.ForeignKey('Category',
+                                 null=True,
+                                 blank=True,
+                                 on_delete=models.SET_NULL)
     service = models.CharField(max_length=254)
-    description = models.TextField()
+    short_description = models.TextField(max_length=1024, blank=True)
+    description = models.TextField(max_length=1024, blank=True)
     has_hours = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    image_url = models.URLField(max_length=1024)
-    image = models.ImageField()
+    image_url = models.CharField(max_length=1024)
     active = models.BooleanField(default=True)
 
     def __str__(self):
