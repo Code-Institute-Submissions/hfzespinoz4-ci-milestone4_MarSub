@@ -2,10 +2,42 @@
 {% load static %}
 
 {% block content %}
-    
-
     <!-- Categories Section  -->
-    <div class="row">
-        <div class="col"> {{ services }}</div>
+    <div class="container">
+        <div class="row">
+            {% for service in services %}
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-img">
+                            <i class="{{ service.image_url }}"></i> 
+                        </div>
+                        <div clas="card-body">
+                            <h5 class="text-center">{{ service.service }}</h5>
+                            <p class="text-center">{{ service.short_description}}</p>
+                            <div class="mx-auto">
+                                <ul class="list-inline">
+                                    <li class="list-item">
+                                        <button class="btn btn-info">More Info</button>
+                                    </li>
+                                    <li class="list-item">
+                                        <div>
+                                            <button class="btn btn-danger">{{ service.price }}</button>
+                                            {% if service.has_hours %}
+                                                <p>price/hour</p>
+                                            {% endif %}
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
