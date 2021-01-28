@@ -1,13 +1,27 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Services
 
 
 # A view to render the services page.
 def all_services(request):
     services = Services.objects.all()
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "Please enter a search criteria")
+                return redirect(reverse('services'))
+
+            queries = Q(service__icontains=query) | Q(description__icontains=query)
+            services = services.filter(queries)
 
     context = {
         'services': services,
+        'search_term': query,
     }
 
     return render(request, 'services/services.html', context)
