@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div >
+    <div class="container">
         <div class="row">
             <div class="col mx-auto text-center">
                 <br>
@@ -11,9 +11,58 @@
             </div>
         </div>
         <div class="row">
-            <div class="col mx-auto text-center">
+            <div class="col-10 mx-auto text-center">
                 {% if bag_items %}
-                    <div class="table-responsive rounded"></div>
+                    <div class="table-responsive rounded">
+                        <table class="table table-sm">
+                            <thead clas="text-black">
+                                <tr>
+                                    <th scope"col text-center"> Img</th>
+                                    <th scope"col text-center"> Service</th>
+                                    <th scope"col text-center"> Price</th>
+                                    <th scope"col text-center"> Qty</th>
+                                    <th scope"col text-center"> Subtotal</th>
+                                </tr>
+                            </thead>
+                            {% for item in bag_items %}
+                                <tr>
+                                    <td class="" >
+                                        <i class="{{ item.service.image_url}} mx-auto"></i>
+                                    </td>
+                                    <td class="w-5">
+                                        <p class="my-auto mx-auto"><strong>{{ item.service.service }}</strong></p>
+                                    </td>
+                                    <td>
+                                        <p class="my-auto text-right"> $ {{ item.service.price }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="my-auto"> {{ item.quantity }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="my-auto text-right"> ${{ item.service.price }}</p>
+                                    </td>   
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <h4><strong>Total Amount: ${{total|floatformat:2}}</strong></h4>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'services' %}" class="btn btn-outline-info">
+                                        <i class="fas fa-chevron-left"></i>
+                                        Keep Shopping
+                                    </a>
+                                    <a href="{% url 'services' %}" class="btn btn-outline-info">
+                                        Secure Checkout
+                                        <i class="fas fa-lock"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 {% else %}
                     <p class="lead mb-5">Your cart is empty</p>
                     <a href="{% url 'services' %}" class="btn btn-success">Keep Shopping</a>
