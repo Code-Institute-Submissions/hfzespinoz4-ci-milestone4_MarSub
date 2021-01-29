@@ -59,6 +59,32 @@
 
     <!-- Categories Section  -->
     <div class="row">
+        <!-- Rendering a card element for each service with it information -->
+        {% for category in Category %}
+            <div class="col-sm-12 col-md-4">
+                <div class="card my-1">
+
+                    <!-- Service Reference Icon  -->
+                    <a href="{% url 'service_detail' service.id %}">
+                        <div class="card-img d-flex ">
+                            <i class="service-img {{ service.image_url }} mx-auto py-3 mt-2"></i> 
+                        </div>
+                    </a>
+
+                        <!-- Service Information  -->
+                        <div class="card-body">
+                            <a href="{% url 'services' %}?category={{ category.category }}">
+                                <h5 class="text-center">{{ service.category }}</h5>
+                            </a>
+                            <div class="mx-1">
+                                <p class="text-center">{{ category.description }}</p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
         
     </div>
 {% endblock %}
