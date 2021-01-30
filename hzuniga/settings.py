@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'services',
     # The Bag App
     'bag',
+    # The checkout App
+    'checkout',
 
 
 ]
