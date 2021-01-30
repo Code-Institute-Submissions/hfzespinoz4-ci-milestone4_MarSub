@@ -66,6 +66,12 @@ a:active {
     color: white;  
 }
 
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 /* Hide number input spinners
 Got from : https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */ 
 
