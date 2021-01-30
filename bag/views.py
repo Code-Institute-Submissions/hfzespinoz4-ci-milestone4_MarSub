@@ -11,6 +11,7 @@ def view_bag(request):
 
 # The Add to bag view_bag.
 def add_to_bag(request, item_id):
+    service = Services.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -33,10 +34,14 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, (f'Updated {service.service} ' f'quantity to {bag[item_id]}'))
+        messages.success(request,
+                         (f'Updated {service.service} '
+                          f'quantity to {bag[item_id]}'))
     else:
         bag.pop(item_id)
-        messages.success(request, (f'Removed {service.service} ' f'from your bag'))
+        messages.success(request,
+                         (f'Removed {service.service} '
+                          f'from your bag'))
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
