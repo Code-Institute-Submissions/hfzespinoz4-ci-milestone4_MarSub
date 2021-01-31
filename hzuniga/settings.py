@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 
@@ -129,11 +130,15 @@ WSGI_APPLICATION = 'hzuniga.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://gahpmlvkbxfgsa:68f8c62917668e960554b39be99fe4a216ac32e3a9093371c49009cfb0e632c1@ec2-54-217-213-79.eu-west-1.compute.amazonaws.com:5432/d9h7jsrtc1cjh6')
 }
 
 
