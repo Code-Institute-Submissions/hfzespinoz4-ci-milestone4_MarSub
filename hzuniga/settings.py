@@ -27,7 +27,7 @@ SECRET_KEY = '27kp9@-%aaolnc&ysaj+*eb1)br%glg=6=y3d$737ian!40u3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['harvinzuniga.herokuapp.com','localhost']
 
 
 # Application definition
@@ -130,16 +130,17 @@ WSGI_APPLICATION = 'hzuniga.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {
-    'default': dj_database_url.parse('postgres://gahpmlvkbxfgsa:68f8c62917668e960554b39be99fe4a216ac32e3a9093371c49009cfb0e632c1@ec2-54-217-213-79.eu-west-1.compute.amazonaws.com:5432/d9h7jsrtc1cjh6')
-}
+if DATABASE_URL in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.envieron.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
