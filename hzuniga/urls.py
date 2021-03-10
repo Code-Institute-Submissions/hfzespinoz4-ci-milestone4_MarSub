@@ -21,16 +21,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # All the urls needed for login, password reset, logout, etc
     path('accounts/', include('allauth.urls')),
-    # The home URL
     path('', include('home.urls')),
-    # The Service URL
     path('services/', include('services.urls')),
-    # The Bag URL
     path('bag/', include('bag.urls')),
-    # The checkout app URL
     path('checkout/', include('checkout.urls')),
-    # The profile App URL
     path('profile/', include('profiles.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
