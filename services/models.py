@@ -21,7 +21,7 @@ class Category(models.Model):
 class Services(models.Model):
 
     class Meta:
-        verbose_name_plural = 'Services'
+        verbose_name_plural = 'ServicesCatalog'
 
     category = models.ForeignKey('Category',
                                  null=True,
