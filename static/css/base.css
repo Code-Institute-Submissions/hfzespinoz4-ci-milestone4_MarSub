@@ -72,20 +72,6 @@ a:active {
     cursor: pointer;
 }
 
-/* Hide number input spinners
-Got from : https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */ 
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
-}
-
 
 /* ------------------------------- bootstrap toasts */
 
