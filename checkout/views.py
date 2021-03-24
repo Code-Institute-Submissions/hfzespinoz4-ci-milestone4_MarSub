@@ -8,6 +8,8 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 from services.models import Services
 from bag.contexts import bag_contents
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 import stripe
 import json

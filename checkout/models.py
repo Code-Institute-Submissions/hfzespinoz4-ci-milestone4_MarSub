@@ -6,6 +6,8 @@ from django.conf import settings
 from django_countries.fields import CountryField
 from services.models import Services
 from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
+from bag.contexts import bag_contents
 
 
 class Order(models.Model):
