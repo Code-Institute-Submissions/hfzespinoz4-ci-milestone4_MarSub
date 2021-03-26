@@ -40,8 +40,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            
-
             <!-- Menu Items -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
@@ -79,6 +77,7 @@
         </nav>
     </header>
 
+    <!-- Messages container -->
     {% if messages %}
         <div class="message-container">
             {% for message in messages %}
@@ -104,12 +103,14 @@
     {% block content %}
     {% endblock %}
 
+    <!-- Postload Scripts  -->
     {% block postloadjs %}
         <script type="text/javascript">
             $('.toast').toast('show');
         </script>
     {% endblock %}
 
+    <!-- Footer Section  -->
     <footer class="mt-3">
         <div class="container-fluid h-100">
             <div class="row justify-content-between">
