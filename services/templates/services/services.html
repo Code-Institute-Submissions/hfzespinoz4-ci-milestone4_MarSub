@@ -30,7 +30,7 @@
                         <!-- Service Reference Icon  -->
                         <a href="{% url 'service_detail' service.id %}">
                             <div class="card-img d-flex ">
-                                <i class="service-img mx-auto py-3 mt-2"></i> 
+                                <i class="{{ service.image_url}} service-img mx-auto py-3 mt-2"></i> 
                             </div>
                         </a>
 
